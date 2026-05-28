@@ -9,6 +9,7 @@ namespace CyberSecurityChatbotGUI
     {
         private Random random = new Random();
         private string favouriteTopic = "";
+        private string currentTopic = "";
         public MainWindow()
         {
             InitializeComponent();
@@ -29,37 +30,11 @@ namespace CyberSecurityChatbotGUI
             UserInput.Clear();
         }
 
-        private string GetResponse(string input)
+            private string GetResponse(string input)
         {
-
-            if (input.Contains("password"))
-                if (input.Contains("i like privacy"))
-                {
-                    favouriteTopic = "privacy";
-
-                    return "Great I will remember that you are interested in privacy";
-                }
-
-            if (input.Contains("i like passwords"))
-            {
-                favouriteTopic = "passwords";
-
-                return "Great I will remember that you are interested in passwords";
-            }
-
-            if (input.Contains("tell me more"))
-            {
-                if (favouriteTopic == "privacy")
-                {
-                    return "Since you are interested in privacy remember to review your account settings regularly";
-                }
-
-                if (favouriteTopic == "passwords")
-                {
-                    return "Since you are interested in passwords remember to use strong unique passwords";
-                }
-            }
             input = input.ToLower();
+
+            // Sentiment Detection
             if (input.Contains("worried"))
             {
                 return "It is understandable to feel worried about online scams. Always verify suspicious links and emails before clicking them.";
@@ -75,6 +50,22 @@ namespace CyberSecurityChatbotGUI
                 return "Curiosity is great. Learning about cybersecurity helps you stay safer online.";
             }
 
+            // Memory System
+            if (input.Contains("i like privacy"))
+            {
+                favouriteTopic = "privacy";
+
+                return "Great I will remember that you are interested in privacy";
+            }
+
+            if (input.Contains("i like passwords"))
+            {
+                favouriteTopic = "passwords";
+
+                return "Great I will remember that you are interested in passwords";
+            }
+
+            // Lists for Random Responses
             List<string> passwordResponses = new List<string>()
     {
         "Use strong unique passwords for every account",
@@ -96,22 +87,63 @@ namespace CyberSecurityChatbotGUI
         "Enable two factor authentication for extra security"
     };
 
+            // Keyword Recognition
             if (input.Contains("password"))
             {
+                currentTopic = "password";
+
                 return passwordResponses[random.Next(passwordResponses.Count)];
             }
-            else if (input.Contains("phishing"))
+
+            if (input.Contains("phishing"))
             {
+                currentTopic = "phishing";
+
                 return phishingResponses[random.Next(phishingResponses.Count)];
             }
-            else if (input.Contains("privacy"))
+
+            if (input.Contains("privacy"))
             {
+                currentTopic = "privacy";
+
                 return privacyResponses[random.Next(privacyResponses.Count)];
             }
-            else
+
+            // Follow Up Conversation
+            if (input.Contains("tell me more") || input.Contains("another tip"))
             {
-                return "I do not understand please rephrase";
+                if (currentTopic == "password")
+                {
+                    return "Avoid reusing the same password across multiple accounts";
+                }
+
+                if (currentTopic == "phishing")
+                {
+                    return "Phishing scams often create fake websites to steal your information";
+                }
+
+                if (currentTopic == "privacy")
+                {
+                    return "Always check app permissions before installing applications";
+                }
             }
+
+            // Memory Recall
+            if (input.Contains("tell me more"))
+            {
+                if (favouriteTopic == "privacy")
+                {
+                    return "Since you are interested in privacy remember to review your account settings regularly";
+                }
+
+                if (favouriteTopic == "passwords")
+                {
+                    return "Since you are interested in passwords remember to use strong unique passwords";
+                }
+            }
+
+            // Default Response
+            return "I do not understand please rephrase";
         }
     }
-}
+    }
