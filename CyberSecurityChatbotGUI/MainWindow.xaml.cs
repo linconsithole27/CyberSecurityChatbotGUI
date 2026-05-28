@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Media;
 using System.Windows;
 
 namespace CyberSecurityChatbotGUI
@@ -10,9 +11,22 @@ namespace CyberSecurityChatbotGUI
         private Random random = new Random();
         private string favouriteTopic = "";
         private string currentTopic = "";
+        private void PlayVoiceGreeting()
+        {
+            try
+            {
+                SoundPlayer player = new SoundPlayer("greeting.wav");
+                player.Play();
+            }
+            catch
+            {
+                MessageBox.Show("Voice greeting could not play");
+            }
+        }
         public MainWindow()
         {
             InitializeComponent();
+            PlayVoiceGreeting();
 
             ChatDisplay.Text = "Welcome to the Cybersecurity Awareness Chatbot\n";
         }
