@@ -8,6 +8,7 @@ namespace CyberSecurityChatbotGUI
 
     {
         private Random random = new Random();
+        private string favouriteTopic = "";
         public MainWindow()
         {
             InitializeComponent();
@@ -30,6 +31,33 @@ namespace CyberSecurityChatbotGUI
 
         private string GetResponse(string input)
         {
+            if (input.Contains("password"))
+                if (input.Contains("i like privacy"))
+                {
+                    favouriteTopic = "privacy";
+
+                    return "Great I will remember that you are interested in privacy";
+                }
+
+            if (input.Contains("i like passwords"))
+            {
+                favouriteTopic = "passwords";
+
+                return "Great I will remember that you are interested in passwords";
+            }
+
+            if (input.Contains("tell me more"))
+            {
+                if (favouriteTopic == "privacy")
+                {
+                    return "Since you are interested in privacy remember to review your account settings regularly";
+                }
+
+                if (favouriteTopic == "passwords")
+                {
+                    return "Since you are interested in passwords remember to use strong unique passwords";
+                }
+            }
             input = input.ToLower();
 
             List<string> passwordResponses = new List<string>()
