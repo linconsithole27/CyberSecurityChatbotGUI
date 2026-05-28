@@ -31,6 +31,7 @@ namespace CyberSecurityChatbotGUI
 
         private string GetResponse(string input)
         {
+
             if (input.Contains("password"))
                 if (input.Contains("i like privacy"))
                 {
@@ -59,6 +60,20 @@ namespace CyberSecurityChatbotGUI
                 }
             }
             input = input.ToLower();
+            if (input.Contains("worried"))
+            {
+                return "It is understandable to feel worried about online scams. Always verify suspicious links and emails before clicking them.";
+            }
+
+            if (input.Contains("frustrated"))
+            {
+                return "Cybersecurity can feel overwhelming sometimes but taking small safety steps helps a lot.";
+            }
+
+            if (input.Contains("curious"))
+            {
+                return "Curiosity is great. Learning about cybersecurity helps you stay safer online.";
+            }
 
             List<string> passwordResponses = new List<string>()
     {
