@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Media;
 using System.Windows;
+using System.Windows.Input;
 
 namespace CyberSecurityChatbotGUI
 {
@@ -28,11 +29,22 @@ namespace CyberSecurityChatbotGUI
             InitializeComponent();
             PlayVoiceGreeting();
 
-            ChatDisplay.Text = "Welcome to the Cybersecurity Awareness Chatbot\n";
+            ChatDisplay.Text =
+                @"   _____      _               _____           
+  / ____|    | |             / ____|          
+ | |    _   _| |__   ___ _ _| (___   ___  ___ 
+ | |   | | | | '_ \ / _ \ '__\___ \ / _ \/ __|
+ | |___| |_| | |_) |  __/ |  ____) |  __/ (__ 
+  \_____\__, |_.__/ \___|_| |_____/ \___|\___|
+         __/ |                                
+        |___/                                 
+
+     Welcome to the Cybersecurity Awareness Chatbot";
         }
 
         private void SendButton_Click(object sender, RoutedEventArgs e)
         {
+
             string userMessage = UserInput.Text;
 
             ChatDisplay.Text += "\nYou: " + userMessage;
@@ -43,8 +55,15 @@ namespace CyberSecurityChatbotGUI
 
             UserInput.Clear();
         }
+        private void UserInput_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                SendButton_Click(sender, e);
+            }
+        }
 
-            private string GetResponse(string input)
+        private string GetResponse(string input)
         {
             input = input.ToLower();
 

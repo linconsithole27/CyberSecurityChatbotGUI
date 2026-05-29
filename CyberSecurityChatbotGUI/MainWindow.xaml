@@ -6,44 +6,80 @@
         xmlns:local="clr-namespace:CyberSecurityChatbotGUI"
         mc:Ignorable="d"
         Title="Cybersecurity Awareness Chatbot"
-        Height="500"
-        Width="800">
+        Height="600"
+        Width="900"
+        WindowStartupLocation="CenterScreen"
+        Background="#0B1120">
 
-    <Grid Background="#0F172A">
+    <Grid Background="#0B1120">
 
-        <StackPanel Margin="20">
+        <Border Background="#111827"
+                CornerRadius="20"
+                Margin="20"
+                Padding="20">
 
-            <TextBlock Text="CYBERSECURITY AWARENESS CHATBOT"
-                       FontSize="28"
-                       FontWeight="Bold"
-                       Foreground="Cyan"
-                       HorizontalAlignment="Center"
-                       Margin="0,0,0,20"/>
+            <StackPanel>
 
-            <TextBox x:Name="ChatDisplay"
-                     Height="260"
-                     IsReadOnly="True"
-                     TextWrapping="Wrap"
-                     VerticalScrollBarVisibility="Auto"
-                     FontSize="16"
-                     Background="Black"
-                     Foreground="Lime"
-                     Margin="0,0,0,10"/>
+                <!-- MAIN TITLE -->
 
-            <TextBox x:Name="UserInput"
-                     Height="40"
-                     FontSize="16"
-                     Margin="0,0,0,10"/>
+                <TextBlock Text=" CYBERSECURITY AWARENESS CHATBOT"
+                           FontSize="30"
+                           FontWeight="Bold"
+                           Foreground="Cyan"
+                           HorizontalAlignment="Center"
+                           Margin="0,0,0,10"/>
 
-            <Button Content="Send"
-                    Height="40"
-                    Width="120"
-                    HorizontalAlignment="Center"
-                    Background="Cyan"
-                    FontWeight="Bold"
-                    Click="SendButton_Click"/>
+                <!-- SUBTITLE -->
 
-        </StackPanel>
+                <TextBlock Text="Stay Safe Online"
+                           FontSize="16"
+                           Foreground="LightGray"
+                           HorizontalAlignment="Center"
+                           Margin="0,0,0,15"/>
+
+
+                <TextBox x:Name="ChatDisplay"
+                         Height="250"
+                         IsReadOnly="True"
+                         TextWrapping="Wrap"
+                         VerticalScrollBarVisibility="Auto"
+                         FontSize="16"
+                         Background="Black"
+                         Foreground="Lime"
+                         BorderBrush="Cyan"
+                         BorderThickness="2"
+                         Padding="10"
+                         Margin="0,0,0,15"/>
+
+                <!-- USER INPUT -->
+
+                <TextBox x:Name="UserInput"
+                         Height="45"
+                         FontSize="16"
+                         Background="#1F2937"
+                         Foreground="White"
+                         BorderBrush="Cyan"
+                         BorderThickness="2"
+                         Padding="10"
+                         Margin="0,0,0,15"
+                         KeyDown="UserInput_KeyDown"/>
+
+                <!-- SEND BUTTON -->
+
+                <Button Content="Send"
+                        Height="45"
+                        Width="140"
+                        HorizontalAlignment="Center"
+                        Background="Cyan"
+                        Foreground="Black"
+                        FontWeight="Bold"
+                        FontSize="16"
+                        BorderThickness="0"
+                        Click="SendButton_Click"/>
+
+            </StackPanel>
+
+        </Border>
 
     </Grid>
 
