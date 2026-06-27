@@ -1,0 +1,207 @@
+﻿<Window x:Class="CyberSecurityChatbotGUI.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CyberSecurityChatbotGUI"
+        mc:Ignorable="d"
+        Title="Cybersecurity Awareness Chatbot"
+        Height="1000"
+        Width="950"
+        WindowStartupLocation="CenterScreen"
+        Background="#0B1120">
+
+    <Grid Background="#0B1120">
+
+        <ScrollViewer VerticalScrollBarVisibility="Auto">
+
+            <Border Background="#111827"
+                CornerRadius="20"
+                Margin="20"
+                Padding="20">
+
+                <StackPanel>
+
+
+
+
+
+                    <!-- MAIN TITLE -->
+
+                    <TextBlock Text=" CYBERSECURITY AWARENESS CHATBOT"
+                           FontSize="30"
+                           FontWeight="Bold"
+                           Foreground="Cyan"
+                           HorizontalAlignment="Center"
+                           Margin="0,0,0,10"/>
+
+                    <!-- SUBTITLE -->
+
+                    <TextBlock Text="Stay Safe Online"
+                           FontSize="16"
+                           Foreground="LightGray"
+                           HorizontalAlignment="Center"
+                           Margin="0,0,0,15"/>
+
+
+                    <TextBox x:Name="ChatDisplay"
+                         Height="250"
+                         IsReadOnly="True"
+                         TextWrapping="Wrap"
+                         VerticalScrollBarVisibility="Auto"
+                         FontSize="16"
+                         Background="Black"
+                         Foreground="Lime"
+                         BorderBrush="Cyan"
+                         BorderThickness="2"
+                         Padding="10"
+                         Margin="0,0,0,15"/>
+
+                    <!-- USER INPUT -->
+
+                    <TextBox x:Name="UserInput"
+                         Height="45"
+                         FontSize="16"
+                         Background="#1F2937"
+                         Foreground="White"
+                         BorderBrush="Cyan"
+                         BorderThickness="2"
+                         Padding="10"
+                         Margin="0,0,0,15"
+                         KeyDown="UserInput_KeyDown"/>
+
+                    <!-- SEND BUTTON -->
+
+                    <Button Content="Send"
+                        Height="45"
+                        Width="140"
+                        HorizontalAlignment="Center"
+                        Background="Cyan"
+                        Foreground="Black"
+                        FontWeight="Bold"
+                        FontSize="16"
+                        BorderThickness="0"
+                        Click="SendButton_Click"/>
+                    <!-- TASK ASSISTANT -->
+
+                    <TextBlock Text="Task Assistant"
+           FontSize="22"
+           FontWeight="Bold"
+           Foreground="Cyan"
+           Margin="0,20,0,10"
+           HorizontalAlignment="Center"/>
+
+                    <TextBox x:Name="TaskTitle"
+         Height="35"
+         Margin="0,5"
+         FontSize="14"
+         Text="Task Title"/>
+
+                    <TextBox x:Name="TaskDescription"
+         Height="35"
+         Margin="0,5"
+         FontSize="14"
+         Text="Task Description"/>
+
+                    <DatePicker x:Name="ReminderDate"
+            Margin="0,5"/>
+                    <TextBox x:Name="TaskId"
+         Height="35"
+         Margin="0,5"
+         Text="Task ID"/>
+
+                    <StackPanel Orientation="Horizontal"
+            HorizontalAlignment="Center"
+            Margin="0,10">
+
+                        <Button x:Name="AddTaskButton"
+            Content="Add Task"
+            Width="110"
+            Height="35"
+            Margin="5"
+            Click="AddTaskButton_Click"/>
+
+                        <Button x:Name="ViewTasksButton"
+            Content="View Tasks"
+            Width="110"
+            Height="35"
+            Margin="5"
+            Click="ViewTasksButton_Click"/>
+
+                    </StackPanel>
+                    <Button x:Name="CompleteTaskButton"
+        Content="Complete Task"
+        Width="120"
+        Height="35"
+        Margin="5"
+        Click="CompleteTaskButton_Click"/>
+
+                    <Button x:Name="DeleteTaskButton"
+        Content="Delete Task"
+        Width="120"
+        Height="35"
+        Margin="5"
+        Click="DeleteTaskButton_Click"/>
+
+                    <Button x:Name="ActivityLogButton"
+        Content="Activity Log"
+        Width="120"
+        Height="35"
+        Margin="5"
+        Click="ActivityLogButton_Click"/>
+
+                    <!-- QUIZ SECTION -->
+
+                    <TextBlock Text="Cybersecurity Quiz"
+           FontSize="22"
+           FontWeight="Bold"
+           Foreground="Cyan"
+           Margin="0,25,0,10"
+           HorizontalAlignment="Center"/>
+
+                    <TextBlock x:Name="QuestionText"
+           Text="Press Start Quiz"
+           FontSize="16"
+           TextWrapping="Wrap"
+           Foreground="White"
+           Margin="0,10"/>
+
+                    <Button x:Name="OptionAButton"
+        Content="A"
+        Height="35"
+        Margin="0,5"
+        Click="OptionAButton_Click"/>
+
+                    <Button x:Name="OptionBButton"
+        Content="B"
+        Height="35"
+        Margin="0,5"
+        Click="OptionBButton_Click"/>
+
+                    <Button x:Name="OptionCButton"
+        Content="C"
+        Height="35"
+        Margin="0,5"
+        Click="OptionCButton_Click"/>
+
+                    <Button x:Name="OptionDButton"
+        Content="D"
+        Height="35"
+        Margin="0,5"
+        Click="OptionDButton_Click"/>
+
+                    <Button x:Name="StartQuizButton"
+        Content="Start Quiz"
+        Height="40"
+        Margin="0,10"
+        Click="StartQuizButton_Click"/>
+
+                </StackPanel>
+
+            </Border>
+
+        </ScrollViewer>
+
+    </Grid>
+    
+</Window>
